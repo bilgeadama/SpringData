@@ -13,6 +13,7 @@ import org.springframework.context.ApplicationContext;
 import org.springframework.context.annotation.ComponentScan;
 import org.springframework.data.jpa.repository.config.EnableJpaRepositories;
 import service.AddressService;
+import service.AuthorService;
 
 
 import java.util.HashSet;
@@ -30,10 +31,11 @@ public class App {
         AddressService addressService= applicationContext.getBean(AddressService.class);
 
         //addressService.addAddress();
-        addressService.findByStreetOrZipCode("YeniBatı", 6030);
-        addressService.deleteAddress(1L);
+//        addressService.findByStreetOrZipCode("YeniBatı", 6030);
+//        addressService.deleteAddress(1L);
 
-
+        AuthorService authorService = applicationContext.getBean(AuthorService.class);
+        authorService.addAuthor();
 
     }
 

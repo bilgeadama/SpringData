@@ -16,12 +16,13 @@ public class AddressService {
         this.addressRepository = addressRepository;
     }
 
-    public void addAddress(){
-        Address address=new Address();
+    public void addAddress() {
+        Address address = new Address();
         address.setStreet("YeniBatı");
         address.setZipCode(6030);
         addressRepository.save(address);
     }
+
     public void deleteAddress(Long id) {
         Optional<Address> deleteItem = addressRepository.findById(id);
         addressRepository.delete(deleteItem.orElse(new Address()));
@@ -33,9 +34,8 @@ public class AddressService {
 
     }
 
-    public void findByStreetOrZipCode(String street, int zipCode)
-    {
-        Set<Address> addresses =  addressRepository.findByStreetOrZipCode(street, zipCode);
+    public void findByStreetOrZipCode(String street, int zipCode) {
+        Set<Address> addresses = addressRepository.findByStreetOrZipCode(street, zipCode);
         System.out.println(addresses);
 
     }
