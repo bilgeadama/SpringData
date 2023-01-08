@@ -29,7 +29,9 @@ public class App {
         ApplicationContext applicationContext = SpringApplication.run(App.class, args);
         AddressService addressService= applicationContext.getBean(AddressService.class);
 
-        addressService.addAddress();
+        //addressService.addAddress();
+        addressService.findByStreetOrZipCode("YeniBatı", 6030);
+        addressService.deleteAddress(1L);
 
 
 

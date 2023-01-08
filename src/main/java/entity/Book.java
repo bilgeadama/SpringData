@@ -2,10 +2,12 @@ package entity;
 
 import jakarta.persistence.*;
 import lombok.Data;
+import lombok.NoArgsConstructor;
 
 @Entity(name = "book")
 @Data
 @Table(name = "book")
+@NoArgsConstructor
 
 public class Book {
     @Id
