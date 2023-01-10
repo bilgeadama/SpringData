@@ -4,7 +4,8 @@ import jakarta.persistence.*;
 import lombok.*;
 
 @Entity(name = "address")
-@Data// getter ve setter
+@Data
+@NoArgsConstructor
 @Table(name = "address")
 public class Address {
     @Id
@@ -16,10 +17,13 @@ public class Address {
     private String street;
 
     @Column(name = "zipcode")
-    private int zipCode;
+    private int zipcode;
 
     @OneToOne(mappedBy = "address")
     private Author author;
 
-
+    public Address(String street, int zipcode) {
+        this.street = street;
+        this.zipcode = zipcode;
+    }
 }

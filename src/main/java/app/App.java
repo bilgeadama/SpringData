@@ -1,10 +1,6 @@
 package app;
 
 
-//import config.Config;
-//import config.DataSourceConfig;
-
-import entity.Address;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.EnableAutoConfiguration;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
@@ -13,9 +9,7 @@ import org.springframework.context.ApplicationContext;
 import org.springframework.context.annotation.ComponentScan;
 import org.springframework.data.jpa.repository.config.EnableJpaRepositories;
 import service.AddressService;
-
-
-import java.util.HashSet;
+import service.BookService;
 
 @SpringBootApplication
 @ComponentScan(basePackages = {"repository", "service", "entity"})
@@ -25,14 +19,13 @@ import java.util.HashSet;
 public class App {
 
     public static void main(String[] args) {
-
         ApplicationContext applicationContext = SpringApplication.run(App.class, args);
-        AddressService addressService= applicationContext.getBean(AddressService.class);
 
+        AddressService addressService=applicationContext.getBean(AddressService.class);
         addressService.addAddress();
 
-
-
+        BookService bookService=applicationContext.getBean(BookService.class);
+        bookService.addBook();
     }
 
 

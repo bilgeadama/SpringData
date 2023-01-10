@@ -1,10 +1,14 @@
 package entity;
 
 import jakarta.persistence.*;
+import lombok.AllArgsConstructor;
 import lombok.Data;
+import lombok.NoArgsConstructor;
 
 @Entity(name = "book")
 @Data
+@AllArgsConstructor
+@NoArgsConstructor
 @Table(name = "book")
 
 public class Book {
@@ -19,19 +23,19 @@ public class Book {
     @Column(name = "pages",nullable = false)
     private int pages;
 
-    @ManyToOne
+    @ManyToOne(cascade=CascadeType.ALL)
     @JoinColumn(name = "author_id",nullable = false)
     private Author author;
 
-    @ManyToOne
+    @ManyToOne(cascade=CascadeType.ALL)
     @JoinColumn(name = "category_id",nullable = false)
     private Category category;
 
-    @ManyToOne
+    @ManyToOne(cascade=CascadeType.ALL)
     @JoinColumn(name = "publisher_id",nullable = false)
     private Publisher publisher;
 
-    @OneToOne
+    @OneToOne(cascade=CascadeType.ALL)
     @JoinColumn(name = "language_id", referencedColumnName = "id")
     private Language language;
 

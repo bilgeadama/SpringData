@@ -1,12 +1,15 @@
 package entity;
 
 import jakarta.persistence.*;
+import lombok.AllArgsConstructor;
 import lombok.Data;
+import lombok.NoArgsConstructor;
 
 import java.util.Set;
 
 @Entity(name = "author")
 @Data
+@NoArgsConstructor
 @Table(name = "author")
 public class Author {
     @Id
@@ -27,5 +30,8 @@ public class Author {
     @JoinColumn(name = "address_id", referencedColumnName = "id")
     private Address address;
 
-
+    public Author(String name, int age) {
+        this.name = name;
+        this.age = age;
+    }
 }
