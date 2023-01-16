@@ -1,7 +1,6 @@
 package entity;
 
 import jakarta.persistence.*;
-import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
@@ -26,7 +25,7 @@ public class Author {
     @OneToMany(mappedBy = "author")
     private Set<Book> book;
 
-    @OneToOne
+    @OneToOne(cascade = {CascadeType.ALL})
     @JoinColumn(name = "address_id", referencedColumnName = "id")
     private Address address;
 

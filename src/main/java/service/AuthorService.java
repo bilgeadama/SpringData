@@ -11,7 +11,7 @@ import java.util.Set;
 
 @Service
 public class AuthorService {
-    @Autowired
+
     private final AuthorRepository authorRepository;
     @Autowired
     public AuthorService(AuthorRepository authorRepository) {
@@ -19,7 +19,10 @@ public class AuthorService {
     }
 
     public void addAuthor(){
-
+        Author author=new Author("Gerard",25);
+        Address address=new Address("Namesti Miru",18000);
+        author.setAddress(address);
+        authorRepository.save(author);
     }
 
     public  void deleteAuthor(long id){
